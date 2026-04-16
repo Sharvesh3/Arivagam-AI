@@ -143,7 +143,15 @@ class Settings(BaseSettings):
     @field_validator("database_url", mode="before")
     @classmethod
     def validate_database_url(cls, v: Optional[str]) -> Optional[str]:
-        """Ensure the database URL has the correct asyncpg prefix if provided."""
+        """
+        Ensure the database URL has the correct asyncpg prefix.
+        Also handles cases where DATABASE_URL might be provided in env but not mapped correctly.
+        """
+        import os
+        # Fallback to direct env check if Pydantic didn't pick it up
+        if not v:
+            v = os.getenv("DATABASE_URL") or os.getenv("DB_URL") 
+            
         if v and v.startswith("postgres://"):
             v = v.replace("postgres://", "postgresql+asyncpg://", 1)
         elif v and v.startswith("postgresql://") and not v.startswith("postgresql+asyncpg://"):

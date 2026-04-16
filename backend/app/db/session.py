@@ -13,6 +13,10 @@ from app.core.config import settings
 
 
 # Create async engine with optimized connection pooling
+if not settings.database_url:
+    logger.error("❌ DATABASE_URL is not set! Please check your environment variables.")
+    raise ValueError("DATABASE_URL is required to start the application.")
+
 engine = create_async_engine(
     settings.database_url,
     echo=settings.debug,
