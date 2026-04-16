@@ -1,0 +1,95 @@
+arivagam_backend  | Waiting for database to be ready...
+arivagam_backend  | Running database migrations...
+arivagam_backend  | INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+arivagam_backend  | INFO  [alembic.runtime.migration] Will assume transactional DDL.
+arivagam_backend  | INFO  [alembic.runtime.migration] Running upgrade  -> 4d6894fa45b4, initial_schema
+arivagam_backend  | INFO  [alembic.runtime.migration] Running upgrade 4d6894fa45b4 -> 002_create_default_admin, create default admin user
+arivagam_backend  | INFO  [alembic.runtime.migration] Running upgrade 002_create_default_admin -> 003_add_chunk_editing, add chunk editing support
+arivagam_backend  | 
+arivagam_backend  | ============================================================
+arivagam_backend  | ✅ DEFAULT ADMIN USER CREATED
+arivagam_backend  | ============================================================
+arivagam_backend  | Email:    admin@arivagam.com
+arivagam_backend  | Password: Admin@123
+arivagam_backend  | ============================================================
+arivagam_backend  | ⚠️  IMPORTANT: Please change this password after first login!
+arivagam_backend  | ============================================================
+arivagam_backend  | 
+arivagam_backend  | 
+arivagam_backend  | ✅ Chunk editing support added
+arivagam_backend  | Starting FastAPI server...
+arivagam_backend  | INFO:     Will watch for changes in these directories: ['/app']
+arivagam_backend  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+arivagam_backend  | INFO:     Started reloader process [26] using WatchFiles
+arivagam_backend  | 2026-03-23 19:04:15.719 | INFO     | app.services.document_processing.chunker:__init__:56 - Chunker initialized: chunk_size=800, overlap=150
+arivagam_backend  | 2026-03-23 19:04:16.151 | INFO     | app.services.embedding.embedding_service:__init__:36 - Embedding service initialized: Gemini models/text-embedding-004 (1536D)
+arivagam_backend  | 2026-03-23 19:04:16.366 | INFO     | app.services.retrieval.reranker:__init__:24 - Reranking service initialized: rerank-english-v3.0
+arivagam_backend  | 2026-03-23 19:04:16.385 | INFO     | app.services.generation.llm_service:__init__:64 - LLM service initialized: models/gemini-1.5-pro
+arivagam_backend  | 2026-03-23 19:04:16.400 | INFO     | app.services.generation.guardrails:__init__:95 - Guardrails initialized: input=True, output=True
+arivagam_backend  | 2026-03-23 19:04:16.425 | INFO     | app.services.generation.context_manager:__init__:291 - ContextManager initialized
+arivagam_backend  | INFO:     Started server process [28]
+arivagam_backend  | INFO:     Waiting for application startup.
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.main[0m:[36mlifespan[0m:[36m42[0m - [1m🚀 Starting arivagam AI Knowledge Assistant...[0m
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.main[0m:[36mlifespan[0m:[36m43[0m - [1mEnvironment: development[0m
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.main[0m:[36mlifespan[0m:[36m44[0m - [1mDebug mode: False[0m
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.db.session[0m:[36minit_db[0m:[36m48[0m - [1m✅ pgvector extension enabled[0m
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.db.session[0m:[36minit_db[0m:[36m52[0m - [1m✅ pg_trgm extension enabled for text search[0m
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.db.session[0m:[36minit_db[0m:[36m56[0m - [1m✅ Database tables created[0m
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.main[0m:[36mlifespan[0m:[36m49[0m - [1m✅ Database initialized[0m
+arivagam_backend  | [32m2026-03-23 19:04:16[0m | [1mINFO    [0m | [36mapp.main[0m:[36mlifespan[0m:[36m57[0m - [1m🎉 Application startup complete![0m
+arivagam_backend  | INFO:     Application startup complete.
+arivagam_backend  | INFO:     172.18.0.1:39132 - "GET /api/v1/health HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:32848 - "GET / HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:32848 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+arivagam_backend  | INFO:     172.18.0.1:59526 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:59526 - "POST /api/v1/auth/login HTTP/1.1" 401 Unauthorized
+arivagam_backend  | INFO:     172.18.0.1:33160 - "OPTIONS /api/v1/auth/register HTTP/1.1" 200 OK
+arivagam_backend  | [32m2026-03-23 19:22:08[0m | [1mINFO    [0m | [36mapp.services.auth.auth_service[0m:[36mregister_user[0m:[36m92[0m - [1mNew user registered: sharvesh822@gmail.com[0m
+arivagam_backend  | INFO:     172.18.0.1:33160 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+arivagam_backend  | INFO:     172.18.0.1:46146 - "OPTIONS /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:46152 - "OPTIONS /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:46146 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:46152 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:40158 - "OPTIONS /api/v1/documents/upload?doc_type=finance HTTP/1.1" 200 OK
+arivagam_backend  | [32m2026-03-23 19:22:55[0m | [1mINFO    [0m | [36mapp.api.endpoints.documents[0m:[36mupload_document[0m:[36m87[0m - [1mDocument upload request: 23CB053_IPR_Assignment.pdf (type: finance) by user sharvesh822@gmail.com[0m
+arivagam_backend  | [32m2026-03-23 19:22:55[0m | [1mINFO    [0m | [36mapp.utils.file_utils[0m:[36msave_upload_file[0m:[36m154[0m - [1mFile saved: data/uploads/f9c839a0-656f-4df1-9161-3b68ec27e366/20260323_192255_51d8f887.pdf (hash: a6bbe103a4a25d76..., size: 29325 bytes)[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.api.endpoints.documents[0m:[36mupload_document[0m:[36m149[0m - [1m✅ Document record created: 67401330-a67b-4067-9e2a-538d0c0b2d09[0m
+arivagam_backend  | INFO:     172.18.0.1:40158 - "POST /api/v1/documents/upload?doc_type=finance HTTP/1.1" 200 OK
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.api.endpoints.documents[0m:[36mprocess_document_background[0m:[36m184[0m - [1mStarting background processing for 67401330-a67b-4067-9e2a-538d0c0b2d09[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m50[0m - [1mStarting processing for document 67401330-a67b-4067-9e2a-538d0c0b2d09[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m53[0m - [1mStep 1: Extracting document structure[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.document_processing.text_extractor[0m:[36mextract_document[0m:[36m75[0m - [1mExtracting document: 20260323_192255_51d8f887.pdf[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.document_processing.text_extractor[0m:[36m_extract_with_pymupdf[0m:[36m280[0m - [1mPyMuPDF extracted 197 elements from 11 pages[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m67[0m - [1mStep 2: Chunking document[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.document_processing.chunker[0m:[36mchunk_document[0m:[36m111[0m - [1mCreated 9 chunks from document[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m76[0m - [1mStep 3: Generating embeddings[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.embedding.embedding_service[0m:[36membed_chunks_with_context[0m:[36m295[0m - [1mGenerating embeddings for 9 chunks[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [1mINFO    [0m | [36mapp.services.embedding.embedding_service[0m:[36m_generate_embeddings_batch_gemini[0m:[36m173[0m - [1mProcessing batch 1/1 (9 texts) [Gemini][0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [31m[1mERROR   [0m | [36mapp.services.embedding.embedding_service[0m:[36m_generate_embeddings_batch_gemini[0m:[36m219[0m - [31m[1mError in batch 1: 404 models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [31m[1mERROR   [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m110[0m - [31m[1m❌ Error processing document 67401330-a67b-4067-9e2a-538d0c0b2d09: 404 models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.[0m
+arivagam_backend  | [32m2026-03-23 19:22:56[0m | [31m[1mERROR   [0m | [36mapp.api.endpoints.documents[0m:[36mprocess_document_background[0m:[36m196[0m - [31m[1m❌ Background processing failed: 404 models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.[0m
+arivagam_backend  | INFO:     172.18.0.1:40158 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | [32m2026-03-23 19:23:28[0m | [1mINFO    [0m | [36mapp.api.endpoints.documents[0m:[36mupload_document[0m:[36m87[0m - [1mDocument upload request: Reccsar_brochure.pdf (type: finance) by user sharvesh822@gmail.com[0m
+arivagam_backend  | [32m2026-03-23 19:23:30[0m | [1mINFO    [0m | [36mapp.utils.file_utils[0m:[36msave_upload_file[0m:[36m154[0m - [1mFile saved: data/uploads/f9c839a0-656f-4df1-9161-3b68ec27e366/20260323_192328_cbf12108.pdf (hash: e6ee3d22d36b491e..., size: 3616127 bytes)[0m
+arivagam_backend  | [32m2026-03-23 19:23:30[0m | [1mINFO    [0m | [36mapp.api.endpoints.documents[0m:[36mupload_document[0m:[36m149[0m - [1m✅ Document record created: 2b31a4bc-90c3-41a3-baee-f8527570ecde[0m
+arivagam_backend  | INFO:     172.18.0.1:60990 - "POST /api/v1/documents/upload?doc_type=finance HTTP/1.1" 200 OK
+arivagam_backend  | [32m2026-03-23 19:23:30[0m | [1mINFO    [0m | [36mapp.api.endpoints.documents[0m:[36mprocess_document_background[0m:[36m184[0m - [1mStarting background processing for 2b31a4bc-90c3-41a3-baee-f8527570ecde[0m
+arivagam_backend  | [32m2026-03-23 19:23:30[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m50[0m - [1mStarting processing for document 2b31a4bc-90c3-41a3-baee-f8527570ecde[0m
+arivagam_backend  | [32m2026-03-23 19:23:30[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m53[0m - [1mStep 1: Extracting document structure[0m
+arivagam_backend  | [32m2026-03-23 19:23:30[0m | [1mINFO    [0m | [36mapp.services.document_processing.text_extractor[0m:[36mextract_document[0m:[36m75[0m - [1mExtracting document: 20260323_192328_cbf12108.pdf[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [1mINFO    [0m | [36mapp.services.document_processing.text_extractor[0m:[36m_extract_with_pymupdf[0m:[36m280[0m - [1mPyMuPDF extracted 8 elements from 8 pages[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m67[0m - [1mStep 2: Chunking document[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [1mINFO    [0m | [36mapp.services.document_processing.chunker[0m:[36mchunk_document[0m:[36m111[0m - [1mCreated 1 chunks from document[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [1mINFO    [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m76[0m - [1mStep 3: Generating embeddings[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [1mINFO    [0m | [36mapp.services.embedding.embedding_service[0m:[36membed_chunks_with_context[0m:[36m295[0m - [1mGenerating embeddings for 1 chunks[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [1mINFO    [0m | [36mapp.services.embedding.embedding_service[0m:[36m_generate_embeddings_batch_gemini[0m:[36m173[0m - [1mProcessing batch 1/1 (1 texts) [Gemini][0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [31m[1mERROR   [0m | [36mapp.services.embedding.embedding_service[0m:[36m_generate_embeddings_batch_gemini[0m:[36m219[0m - [31m[1mError in batch 1: 404 models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [31m[1mERROR   [0m | [36mapp.services.document_processing.processor[0m:[36mprocess_document[0m:[36m110[0m - [31m[1m❌ Error processing document 2b31a4bc-90c3-41a3-baee-f8527570ecde: 404 models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.[0m
+arivagam_backend  | [32m2026-03-23 19:23:31[0m | [31m[1mERROR   [0m | [36mapp.api.endpoints.documents[0m:[36mprocess_document_background[0m:[36m196[0m - [31m[1m❌ Background processing failed: 404 models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.[0m
+arivagam_backend  | INFO:     172.18.0.1:60990 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:34274 - "OPTIONS /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:34280 - "OPTIONS /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:34280 - "GET /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:34274 - "GET /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:34274 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:34280 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK

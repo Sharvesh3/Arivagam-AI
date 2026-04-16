@@ -1,0 +1,200 @@
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+arivagam_backend  |   quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+arivagam_backend  |   quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+arivagam_backend  |   quota_id: "GenerateContentInputTokensPerModelPerDay-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | , retry_delay {
+arivagam_backend  |   seconds: 45
+arivagam_backend  | }
+arivagam_backend  | ][0m
+arivagam_backend  | [32m2026-03-23 21:11:14[0m | [1mINFO    [0m | [36mapp.services.generation.llm_service[0m:[36mgenerate_answer[0m:[36m197[0m - [1mGenerating answer: conversational=False, sources=8[0m
+arivagam_backend  | [32m2026-03-23 21:11:14[0m | [31m[1mERROR   [0m | [36mapp.services.generation.llm_service[0m:[36mgenerate_answer[0m:[36m263[0m - [31m[1mGeneration failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | Please retry in 43.135233222s. [links {
+arivagam_backend  |   description: "Learn more about Gemini API quotas"
+arivagam_backend  |   url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+arivagam_backend  | }
+arivagam_backend  | , violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+arivagam_backend  |   quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+arivagam_backend  |   quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+arivagam_backend  |   quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+arivagam_backend  |   quota_id: "GenerateContentInputTokensPerModelPerDay-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | , retry_delay {
+arivagam_backend  |   seconds: 43
+arivagam_backend  | }
+arivagam_backend  | ][0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.llm_service[0m:[36mgenerate_answer[0m:[36m197[0m - [1mGenerating answer: conversational=False, sources=8[0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [31m[1mERROR   [0m | [36mapp.services.generation.llm_service[0m:[36mgenerate_answer[0m:[36m263[0m - [31m[1mGeneration failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | * Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro
+arivagam_backend  | Please retry in 41.028085178s. [links {
+arivagam_backend  |   description: "Learn more about Gemini API quotas"
+arivagam_backend  |   url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+arivagam_backend  | }
+arivagam_backend  | , violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+arivagam_backend  |   quota_id: "GenerateContentInputTokensPerModelPerDay-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+arivagam_backend  |   quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+arivagam_backend  |   quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | violations {
+arivagam_backend  |   quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+arivagam_backend  |   quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "model"
+arivagam_backend  |     value: "gemini-2.5-pro"
+arivagam_backend  |   }
+arivagam_backend  |   quota_dimensions {
+arivagam_backend  |     key: "location"
+arivagam_backend  |     value: "global"
+arivagam_backend  |   }
+arivagam_backend  | }
+arivagam_backend  | , retry_delay {
+arivagam_backend  |   seconds: 41
+arivagam_backend  | }
+arivagam_backend  | ][0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [31m[1mERROR   [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m230[0m - [31m[1mGeneration failed: RetryError[<Future at 0x7768051e3450 state=finished raised ResourceExhausted>][0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m257[0m - [1m============================================================[0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m259[0m - [1m✅ RESPONSE SOURCE: DOCUMENTS[0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m260[0m - [1m   📄 Primary document: amazon_bi_assignment.docx[0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m261[0m - [1m   📑 Total chunks: 8[0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m262[0m - [1m   📌 Citations: 0[0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m265[0m - [1m============================================================[0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.suggestion_service[0m:[36mgenerate_suggestions[0m:[36m76[0m - [1mGenerated 4 suggestions: ['Tell me more about this', 'Can you give an example?', 'What else is in this document?', 'How do I reach them?'][0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.services.generation.chat_service[0m:[36mchat[0m:[36m285[0m - [1mGenerated 4 smart suggestions: ['Can you rephrase that?', 'Show me related information', 'Tell me more about this', 'Can you give an example?'][0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.api.endpoints.chat[0m:[36mchat[0m:[36m136[0m - [1mChat service returned suggestions: ['Can you rephrase that?', 'Show me related information', 'Tell me more about this', 'Can you give an example?'][0m
+arivagam_backend  | [32m2026-03-23 21:11:16[0m | [1mINFO    [0m | [36mapp.api.endpoints.chat[0m:[36mchat[0m:[36m149[0m - [1mReturning 4 suggestions to frontend[0m
+arivagam_backend  | INFO:     172.18.0.1:33586 - "POST /api/v1/chat HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33586 - "OPTIONS /api/v1/chat/conversations/9f6bc9b3-df05-450c-9771-4f2d7833eeb7 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33586 - "GET /api/v1/chat/conversations/9f6bc9b3-df05-450c-9771-4f2d7833eeb7 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33850 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33866 - "GET /api/v1/documents?limit=100 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33866 - "GET /api/v1/documents/3591837e-33b8-497d-afc5-ffe1b246d953/info HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33850 - "GET /api/v1/documents/3591837e-33b8-497d-afc5-ffe1b246d953/chunks HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33876 - "GET /api/v1/documents/3591837e-33b8-497d-afc5-ffe1b246d953/edit-stats HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33866 - "GET /api/v1/documents/3591837e-33b8-497d-afc5-ffe1b246d953/chunks HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33892 - "GET /api/v1/documents/3591837e-33b8-497d-afc5-ffe1b246d953/info HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:33850 - "GET /api/v1/documents/3591837e-33b8-497d-afc5-ffe1b246d953/edit-stats HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:49996 - "OPTIONS /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:50002 - "OPTIONS /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:50002 - "GET /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:49996 - "GET /api/v1/chat/conversations?limit=20 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:49996 - "GET /api/v1/chat/conversations/9f6bc9b3-df05-450c-9771-4f2d7833eeb7 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:50002 - "GET /api/v1/chat/conversations/9f6bc9b3-df05-450c-9771-4f2d7833eeb7 HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:50002 - "OPTIONS /api/v1/chat/conversations/9f6bc9b3-df05-450c-9771-4f2d7833eeb7/analytics HTTP/1.1" 200 OK
+arivagam_backend  | INFO:     172.18.0.1:50002 - "GET /api/v1/chat/conversations/9f6bc9b3-df05-450c-9771-4f2d7833eeb7/analytics HTTP/1.1" 200 OK

@@ -1,0 +1,5 @@
+docker exec -it arivagam_postgres bash
+psql -U arivagam_user -d arivagam_db
+DELETE FROM alembic_version;
+\q
+exit
