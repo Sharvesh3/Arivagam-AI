@@ -129,7 +129,7 @@ class Settings(BaseSettings):
     log_retention: str = "30 days"
     
     # CORS Settings
-    cors_origins: Union[str, List[str]] = "http://localhost:3000,http://localhost:5173"
+    cors_origins: Union[str, List[str]] = "*"
     cors_allow_credentials: bool = True
     
     @field_validator("cors_origins", mode="before")
