@@ -140,6 +140,16 @@ class Settings(BaseSettings):
     cors_origins: Union[str, List[str]] = "*"
     cors_allow_credentials: bool = True
     
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def validate_database_url(cls, v: Optional[str]) -> Optional[str]:
+        """Ensure the database URL has the correct asyncpg prefix if provided."""
+        if v and v.startswith("postgres://"):
+            v = v.replace("postgres://", "postgresql+asyncpg://", 1)
+        elif v and v.startswith("postgresql://") and not v.startswith("postgresql+asyncpg://"):
+            v = v.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return v
+
     @field_validator("cors_origins", mode="before")
     @classmethod
     def parse_cors_origins(cls, v):
