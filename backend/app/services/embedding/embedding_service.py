@@ -31,53 +31,16 @@ class EmbeddingService:
         self.dimensions = settings.gemini_embedding_dimensions
         self.batch_size = 100
         
-        self.local_model = None
-        self.use_local_fallback = False
-        
-
-        
         logger.info(f"Embedding service initialized: Gemini {self.model_name} ({self.dimensions}D)")
     
-    def _init_local_model(self):
-        """Initialize local sentence-transformers model as fallback."""
-        if self.local_model is None:
-            try:
-                from sentence_transformers import SentenceTransformer
-                logger.warning("Initializing local embedding model (fallback mode)...")
-                # This may take time and disk space on Render
-                self.local_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
-                logger.info("Local embedding model loaded successfully")
-            except Exception as e:
-                logger.error(f"Failed to load local model. If error is 'cached_download', ensure huggingface-hub < 0.26.0: {str(e)}")
-                raise
-    
+
     @retry(
         stop=stop_after_attempt(5),
         wait=wait_exponential(multiplier=2, min=10, max=60)
     )
     async def generate_embedding(self, text: str) -> List[float]:
-        """
-        Generate embedding for a single text.
-        
-        Args:
-            text: Text to embed
-            
-        Returns:
-            List of floats representing the embedding vector
-        """
-        if self.use_local_fallback:
-            return await self._generate_embedding_local(text)
-        
-        try:
-            return await self._generate_embedding_gemini(text)
-        except Exception as e:
-            error_str = str(e).lower()
-            if any(err in error_str for err in ['quota', 'rate limit', 'authentication', '429', '401', '403']):
-                logger.warning(f"Gemini API error, switching to local: {str(e)}")
-                self.use_local_fallback = True
-                self._init_local_model()
-                return await self._generate_embedding_local(text)
-            raise
+        """Generate embedding for a single text using Gemini."""
+        return await self._generate_embedding_gemini(text)
     
     async def _generate_embedding_gemini(self, text: str) -> List[float]:
         """Generate embedding using Google Generative AI API."""
@@ -132,32 +95,10 @@ class EmbeddingService:
         texts: List[str],
         show_progress: bool = False
     ) -> List[List[float]]:
-        """
-        Generate embeddings for multiple texts efficiently.
-        
-        Args:
-            texts: List of texts to embed
-            show_progress: Whether to log progress
-            
-        Returns:
-            List of embedding vectors
-        """
+        """Generate embeddings for multiple texts using Gemini."""
         if not texts:
             return []
-        
-        if self.use_local_fallback:
-            return await self._generate_embeddings_batch_local(texts, show_progress)
-        
-        try:
-            return await self._generate_embeddings_batch_gemini(texts, show_progress)
-        except Exception as e:
-            error_str = str(e).lower()
-            if any(err in error_str for err in ['quota', 'rate limit', 'authentication', '429', '401', '403']):
-                logger.warning(f"Gemini batch error, switching to local: {str(e)}")
-                self.use_local_fallback = True
-                self._init_local_model()
-                return await self._generate_embeddings_batch_local(texts, show_progress)
-            raise
+        return await self._generate_embeddings_batch_gemini(texts, show_progress)
     
     async def _generate_embeddings_batch_gemini(
         self,
@@ -216,28 +157,7 @@ class EmbeddingService:
         logger.info(f"✅ Generated {len(all_embeddings)} Gemini embeddings successfully")
         return all_embeddings
         
-    async def _generate_embeddings_batch_local(
-        self,
-        texts: List[str],
-        show_progress: bool = False
-    ) -> List[List[float]]:
-        """Generate embeddings using local model in batches."""
-        if self.local_model is None:
-            self._init_local_model()
-        
-        if show_progress:
-            logger.info(f"Processing {len(texts)} texts with local model...")
-        
-        loop = asyncio.get_event_loop()
-        embeddings_array = await loop.run_in_executor(
-            None,
-            lambda: self.local_model.encode(texts, convert_to_numpy=True, show_progress_bar=show_progress)
-        )
-        
-        embeddings = [self._adjust_dimensions(emb.tolist()) for emb in embeddings_array]
-        
-        logger.info(f"Generated {len(embeddings)} local embeddings successfully")
-        return embeddings
+
     
     def enhance_text_for_embedding(
         self,
@@ -305,11 +225,8 @@ class EmbeddingService:
         return float(dot_product / (norm1 * norm2))
     
     async def embed_query(self, query: str) -> List[float]:
-        """Generate embedding for a search query."""
+        """Generate embedding for a search query using Gemini."""
         enhanced_query = f"Query: {query}"
-        
-        if self.use_local_fallback:
-            return await self._generate_embedding_local(enhanced_query)
         
         try:
             loop = asyncio.get_event_loop()
@@ -325,10 +242,8 @@ class EmbeddingService:
             embedding = await loop.run_in_executor(None, _get_query_embedding)
             return self._adjust_dimensions(embedding)
         except Exception as e:
-            logger.warning(f"Query embedding failed, using local: {str(e)}")
-            self.use_local_fallback = True
-            self._init_local_model()
-            return await self._generate_embedding_local(enhanced_query)
+            logger.error(f"Query embedding failed: {str(e)}")
+            raise
 
 
 # Global instance

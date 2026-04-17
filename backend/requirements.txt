@@ -20,11 +20,6 @@ pdfplumber==0.10.3
 # Google Gemini AI
 google-generativeai==0.8.3
 
-# Local embeddings fallback
-sentence-transformers==2.2.2
-huggingface-hub<0.26.0
-torch==2.2.1
-typing-extensions==4.10.0
 
 # Other AI services
 tiktoken==0.5.2
