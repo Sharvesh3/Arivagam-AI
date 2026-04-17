@@ -63,12 +63,12 @@ class Settings(BaseSettings):
     # Vertex AI Configuration
     gcp_project_id: Optional[str] = None
     gcp_location: str = "us-central1"
-    google_application_credentials: str = "/app/gcp-credentials.json"
+    google_application_credentials: Optional[str] = None
     gemini_api_key: str = Field(default="", env="GEMINI_API_KEY")
     
     gemini_embedding_model: str = Field(default="gemini-embedding-001", env="GEMINI_EMBEDDING_MODEL")
     gemini_embedding_dimensions: int = Field(default=768, env="GEMINI_EMBEDDING_DIMENSIONS")
-    gemini_chat_model: str = Field(default="gemini-2.5-flash", env="GEMINI_CHAT_MODEL")
+    gemini_chat_model: str = Field(default="gemini-1.5-flash", env="GEMINI_CHAT_MODEL")
     gemini_max_tokens: int = 8192
     
     # Cohere Configuration
