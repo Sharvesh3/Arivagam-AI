@@ -51,8 +51,8 @@ class EmbeddingService:
                 raise
     
     @retry(
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=1, min=2, max=10)
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=2, min=10, max=60)
     )
     async def generate_embedding(self, text: str) -> List[float]:
         """
@@ -194,8 +194,8 @@ class EmbeddingService:
                 logger.info(f"✅ Batch {batch_num} completed: {len(batch_embeddings)} embeddings")
                 all_embeddings.extend(batch_embeddings)
                 
-                # Small delay to avoid rate limits
-                await asyncio.sleep(0.2)
+                # Optimized delay for Billing Account
+                await asyncio.sleep(2.0)
                 
             except asyncio.TimeoutError as e:
                 logger.error(f"Timeout in batch {batch_num}: {str(e)}")
