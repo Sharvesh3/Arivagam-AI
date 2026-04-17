@@ -43,11 +43,12 @@ class EmbeddingService:
         if self.local_model is None:
             try:
                 from sentence_transformers import SentenceTransformer
-                logger.warning("Initializing local embedding model...")
+                logger.warning("Initializing local embedding model (fallback mode)...")
+                # This may take time and disk space on Render
                 self.local_model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
                 logger.info("Local embedding model loaded successfully")
             except Exception as e:
-                logger.error(f"Failed to load local model: {str(e)}")
+                logger.error(f"Failed to load local model. If error is 'cached_download', ensure huggingface-hub < 0.26.0: {str(e)}")
                 raise
     
     @retry(
