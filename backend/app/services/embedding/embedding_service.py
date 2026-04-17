@@ -141,17 +141,10 @@ class EmbeddingService:
                 
             except asyncio.TimeoutError as e:
                 logger.error(f"Timeout in batch {batch_num}: {str(e)}")
-                logger.warning("Switching to local embeddings due to timeout")
-                self.use_local_fallback = True
-                return await self._generate_embeddings_batch_local(texts, show_progress)
+                raise
                 
             except Exception as e:
                 logger.error(f"Error in batch {batch_num}: {str(e)}")
-                error_str = str(e).lower()
-                if any(err in error_str for err in ['quota', 'rate limit', 'authentication', '429', '401', '403']):
-                    logger.warning(f"Gemini batch error, switching to local: {str(e)}")
-                    self.use_local_fallback = True
-                    return await self._generate_embeddings_batch_local(texts, show_progress)
                 raise
         
         logger.info(f"✅ Generated {len(all_embeddings)} Gemini embeddings successfully")
