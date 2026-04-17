@@ -6,7 +6,10 @@ function useToast() {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   useEffect(() => {
-    return toast.subscribe(setToasts);
+    const unsubscribe = toast.subscribe(setToasts);
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return toasts;

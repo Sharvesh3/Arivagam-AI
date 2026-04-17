@@ -108,7 +108,7 @@ export default function DocumentEditorPage() {
     }
   };
 
-  const handleSaveMetadata = async (metadata: any) => {
+  const handleSaveMetadata = async (_metadata: any) => {
     toast.info('Metadata update feature coming soon');
   };
 

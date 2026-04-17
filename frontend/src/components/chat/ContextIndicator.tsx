@@ -18,7 +18,6 @@ export default function ContextIndicator({ contextSummary, onClearContext }: Con
     return null;
   }
 
-  const hasContext = contextSummary.primary_document || contextSummary.recent_time_period;
 
   return (
     <div className="mb-4">

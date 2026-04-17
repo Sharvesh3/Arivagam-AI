@@ -12,6 +12,7 @@ interface User {
   is_verified: boolean;
   preferences: Record<string, any>;
   metadata: Record<string, any>;
+  created_at: string;
 }
 
 interface AuthContextType {
@@ -103,7 +104,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const updateProfile = async (data: Partial<User>) => {
-    const updatedUser = await api.updateProfile(data);
+    const updatedUser = await api.updateProfile(data as any);
     setUser(updatedUser);
   };
 
